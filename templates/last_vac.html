@@ -1,0 +1,110 @@
+<!-- home.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Моя страница</title>
+</head>
+    <style>header {
+  background: aquamarine;
+  padding: 20px;
+  color: black;
+  display: flex;
+  align-items: center;
+}
+
+header h1 {
+  margin-left: 30%;
+  text-align: center;
+}
+.skill {
+  display: grid;
+  grid-template-columns: 20% auto;
+}
+
+.skill -nav {
+    background-color: skyblue;
+    padding: 10px;
+    color: black;
+}
+
+.skill-desc h2{
+  text-align: center;
+}
+
+.skill-desc a{
+    color: black;
+}
+
+.skill-desc p{
+  border: 3px dotted ;
+}
+
+.desc-1 {
+    width: 750px;
+    display: grid;
+  grid-template-columns: 600px 500px;
+}
+
+img {
+    text-align: left;
+    float: left;
+}
+table {
+   border: 1px solid black;
+    margin-top: 20px;
+    width: 200px;
+}
+/* границы ячеек первого ряда таблицы */
+th {
+   border: 2px solid black;
+}
+/* границы ячеек тела таблицы */
+td {
+   border: 2px solid black;
+    text-align: center;
+}
+
+footer {
+  background-color: aquamarine;
+  padding: 20px;
+  color: black;
+  text-align: center;
+}</style>
+<body>
+  <header>
+    <img src="../media/logo.jpg" width="100" height="100" alt="Логотип">
+      <h1>EnginProgr</h1>
+  </header>
+  <main>
+  <section class="skill">
+      <nav class="skill-nav">
+        <ul>
+            <li><a href="../">Главная</a></li>
+            <li><a href="../demand/">Востребованность</a></li>
+            <li><a href="../geography/">География</a></li>
+            <li><a href="../skills/">Навыки</a></li>
+            <li><a href="../last_vac/">Последние вакансии</a></li>
+        </ul>
+      </nav>
+      <section class="skill-desc">
+          <h2>Топ 20 навыков по годам</h2>
+          <div class="desc-1">
+            {% for i in vacs %}
+                <h3>{{ i.name }}</h3>
+                <p>Описание: {{ i.description }}</p>
+                <p>Навыки: {{ i.key_skills }}</p>
+                <p>Компания: {{ i.employer }}</p>
+                <p>Зарплата: {{ i.salary }}</p>
+                <p>Город: {{ i.area }}</p>
+                <p>Дата публикации: {{ i.published_at }}</p>
+                <p>Ссылка: {{ i.alternate_url }}</p>
+            {% endfor %}
+    </div>
+            </div>
+      </section>
+    </section>
+  </main>
+  <footer>
+    <p>Карасев Михаил Евгеньевич АТ-04</p>
+  </footer>
+</body>
